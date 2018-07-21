@@ -1,21 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ClientsListComponent } from './src/client/clients-list/clients-list.component';
-import { ClientDetailsComponent } from './client/components/client-details/client-details.component';
-import { SearchComponent } from './client/components/search/search.component';
-import { ClientShellComponent } from './client/containers/client-shell/client-shell.component';
+import { ClientModule } from './client/client.module';
+
+const appRoutes: Routes = [];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientsListComponent,
-    ClientDetailsComponent,
-    SearchComponent,
-    ClientShellComponent
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
+    ClientModule,
     BrowserModule
   ],
   providers: [],
