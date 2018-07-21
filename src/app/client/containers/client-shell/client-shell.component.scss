@@ -1,0 +1,13 @@
+.leftPanel {
+    width: 400px;
+    float: left;
+    overflow: auto;
+    min-width: 400px;
+}
+
+.rightPanel {
+    width: calc(100% - 400px);
+    min-width: 360px;
+    float: left;
+    overflow: auto;
+}

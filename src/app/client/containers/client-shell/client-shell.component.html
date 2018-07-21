@@ -1,3 +1,11 @@
-<p>
-  client-shell works!
-</p>
+<div class="leftPanel">
+    <div>
+        <app-search (searchText)="runSearch($event)"></app-search>
+    </div>
+    <div>
+        <app-clients-list [clients]="clients$ | async" (selected)="clientSelected($event)"></app-clients-list>
+    </div>
+</div>
+<div class="rightPanel">
+    <app-client-details [client]="client"></app-client-details>
+</div>

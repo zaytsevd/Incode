@@ -1,3 +1,14 @@
-<p>
-  clients-list works!
-</p>
+<ul class="clients">
+    <li *ngFor="let client of clients">
+        <button mat-button (click)="select(client)">
+        <mat-card class="example-card">
+          <mat-card-header>
+              <div mat-card-avatar [style.background-image]="'url(' + client.general.avatar + ')'"></div>
+              <mat-card-title>{{client.general.firstName}} {{client.general.lastName}}</mat-card-title>
+              <mat-card-subtitle>{{client.job.title}}</mat-card-subtitle>
+            </mat-card-header>
+      </mat-card>
+      <mat-divider></mat-divider>
+    </button>
+    </li>
+</ul>

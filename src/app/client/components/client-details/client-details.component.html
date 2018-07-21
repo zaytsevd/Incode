@@ -1,3 +1,22 @@
-<p>
-  client-details works!
-</p>
+<mat-card *ngIf="client">
+    <mat-card-header>
+        <div mat-card-avatar [style.background-image]="'url(' + client.general.avatar + ')'"></div>
+        <mat-card-title>{{client.general.firstName}} {{client.general.lastName}}</mat-card-title>
+        <mat-card-subtitle>{{client.job.title}} - {{client.job.company}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-card-title>Address: </mat-card-title>
+        <mat-card-subtitle>Country: {{client.address.country}}</mat-card-subtitle>
+        <mat-card-subtitle>City: {{client.address.city}}</mat-card-subtitle>
+        <mat-card-subtitle>Street: {{client.address.street}}</mat-card-subtitle>
+        <mat-card-subtitle>ZIP Code: {{client.address.zipCode}}</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-content>
+        <mat-card-title>Contacts: </mat-card-title>
+        <mat-card-subtitle>
+            <mat-icon matSuffix>alternate_email</mat-icon>: {{client.contact.email}}</mat-card-subtitle>
+        <mat-card-subtitle>
+            <mat-icon matSuffix>phone</mat-icon>: {{client.contact.phone}}</mat-card-subtitle>
+    </mat-card-content>
+</mat-card>
