@@ -12,6 +12,5 @@ export class ClientsListComponent {
 
   select(client: Client) {
     this.selected.emit(client);
-    console.log(client);
   }
 }

@@ -13,7 +13,6 @@ export class ClientService {
 
   getClients(): Observable<Client[]> {
     return this.http.get<Client[]>('./assets/clients.json').pipe(
-      tap((data) => console.log(data)),
       catchError(this.errorHandler)
     );
   }

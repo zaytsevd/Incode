@@ -1,7 +1,9 @@
-import { Observable } from 'rxjs';
-import { Client } from './../../client';
 import { Component, OnInit } from '@angular/core';
-import { ClientService } from '../../client.service';
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { Client } from './../../client';
+import * as ClientReducer from './../../state/clientReducer';
+import * as ClientActions from '../../state/clientActions';
 
 @Component({
   selector: 'app-client-shell',
@@ -10,17 +12,22 @@ import { ClientService } from '../../client.service';
 })
 export class ClientShellComponent implements OnInit {
   clients$: Observable<Client[]>;
-  client: Client;
+  client$: Observable<Client>;
 
-  constructor(private clientService: ClientService) { }
+  constructor(private store: Store<ClientReducer.ClientState>) {  }
 
   clientSelected(client: Client) {
-    this.client = client;
+    this.store.dispatch(new ClientActions.ClientSelect(client));
+  }
+
+  runSearch(data: string) {
+    this.store.dispatch(new ClientActions.ClientFilter(data));
   }
 
   ngOnInit() {
-    this.clients$ = this.clientService.getClients();
-    console.log(this.clients$);
+    this.store.dispatch(new ClientActions.ClientLoad());
+    this.clients$ = this.store.pipe(select(ClientReducer.getFilteredClients));
+    this.client$ = this.store.pipe(select(ClientReducer.getSelectedClient));
   }
 
 }
