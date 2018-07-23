@@ -15,8 +15,9 @@
     <mat-card-content>
         <mat-card-title>Contacts: </mat-card-title>
         <mat-card-subtitle>
-            <mat-icon matSuffix>alternate_email</mat-icon>: {{client.contact.email}}</mat-card-subtitle>
+            <mat-icon matSuffix>alternate_email</mat-icon>:
+            <a href="mailto:{{client.contact.email}}">{{client.contact.email}}</a></mat-card-subtitle>
         <mat-card-subtitle>
-            <mat-icon matSuffix>phone</mat-icon>: {{client.contact.phone}}</mat-card-subtitle>
+            <mat-icon matSuffix>phone</mat-icon>: <a href="tel:+{{client.contact.phone}}">{{client.contact.phone}}</a></mat-card-subtitle>
     </mat-card-content>
 </mat-card>
